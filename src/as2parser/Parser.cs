@@ -1,4 +1,4 @@
-*
+/*
 * AsiGen - ActionScript 2.0 intrinsic class generator
 *
 * Copyright (c) 2005-2010 Steve Webster.

@@ -10,6 +10,10 @@ asigen is an instrinsic class generator for ActionScript 2.0 written in C#, comp
 
 The ActionScript 2.0 class parser is a separate module that could potentially be used in other projects. Right now it only supports higher level constructs necessary for asigen (i.e. it doesn’t parse inside of functions) but could potentially be extended.
 
+## Atribution
+
+Parts of this source code make use of Mono Class libraries, specifically the Mono.GetOptions assembly.  Mono class libraries are licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php) and are Copyright (c) [Mono Project](http://www.mono-project.com).
+
 ## License
 
 asigen is released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
