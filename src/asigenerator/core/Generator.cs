@@ -220,7 +220,11 @@ namespace ASIGenerator.Core {
 		}
 
 		private void Parser_OnMethodFound(object sender, MethodHandlerEventArgs methodInfo) {
-			this.buffer.Append("\t" + methodInfo.Namespace.ToString().ToLower());
+            if (this.options.PublicOnly && methodInfo.Namespace == NamespaceAttribute.Private) {
+                return;
+            }
+
+            this.buffer.Append("\t" + methodInfo.Namespace.ToString().ToLower());
 
 			if (methodInfo.IsStatic) {
 				this.buffer.Append(" static");
@@ -236,6 +240,10 @@ namespace ASIGenerator.Core {
 		}
 
 		private void Parser_OnGetterFound(object sender, GetterHandlerEventArgs getterInfo) {
+            if (this.options.PublicOnly && getterInfo.Namespace == NamespaceAttribute.Private) {
+                return;
+            }
+
 			this.buffer.Append("\t" + getterInfo.Namespace.ToString().ToLower());
 
 			if (getterInfo.IsStatic) {
@@ -252,7 +260,11 @@ namespace ASIGenerator.Core {
 		}
 
 		private void Parser_OnSetterFound(object sender, SetterHandlerEventArgs setterInfo) {
-			this.buffer.Append("\t" + setterInfo.Namespace.ToString().ToLower());
+            if (this.options.PublicOnly && setterInfo.Namespace == NamespaceAttribute.Private) {
+                return;
+            }
+
+            this.buffer.Append("\t" + setterInfo.Namespace.ToString().ToLower());
 
 			if (setterInfo.IsStatic) {
 				this.buffer.Append(" static");
@@ -268,7 +280,11 @@ namespace ASIGenerator.Core {
 		}
 
 		private void Parser_OnPropertyFound(object sender, PropertyHandlerEventArgs propertyInfo) {
-			this.buffer.Append("\t" + propertyInfo.Namespace.ToString().ToLower());
+            if (this.options.PublicOnly && propertyInfo.Namespace == NamespaceAttribute.Private) {
+                return;
+            }
+
+            this.buffer.Append("\t" + propertyInfo.Namespace.ToString().ToLower());
 
 			if (propertyInfo.IsStatic) {
 				this.buffer.Append(" static");
